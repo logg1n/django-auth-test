@@ -1,9 +1,11 @@
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from .models import User
+from .models import CustomUser
+
 
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):
-        model = User
-        # Поля, которые будут отображаться в форме регистрации.
-        # username — обязательно, email и phone_number добавлены.
-        fields = ('username', 'email', 'phone_number')
+        model = CustomUser
+
+        fields = ('email', 'username', 'phone_number', 'password1', 'password2')
+
